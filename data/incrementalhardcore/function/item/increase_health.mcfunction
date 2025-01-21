@@ -14,6 +14,4 @@ playsound minecraft:entity.firework_rocket.twinkle_far neutral @a ~ ~ ~ 1 1.5
 
 
 #kills a lone item, decreases the amount of items if a stack.
-execute if score INH:ItemCount temp matches 0 run kill @s
-execute if score INH:ItemCount temp matches 0 run return 1
-$data modify entity @s Item.count set value $(UpdatedItemCount) 
+function incrementalhardcore:item/update_item_count with storage incrementalhardcore:temp

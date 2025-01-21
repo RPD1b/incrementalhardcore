@@ -1,5 +1,5 @@
 #remove a full heart, as its stored in half hearts. Just in case.
-scoreboard players remove @s MaxHealth 2
+scoreboard players remove @s[scores={MaxHealth=2..}] MaxHealth 2
 
 #put the max health score into storage, because its a score, for easier math and display. However a score is needed for variables.
 execute store result storage incrementalhardcore:temp MaxHealthValue int 1 run scoreboard players get @s MaxHealth
