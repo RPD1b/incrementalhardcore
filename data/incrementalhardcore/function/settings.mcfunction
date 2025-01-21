@@ -29,11 +29,11 @@ tellraw @s [{"text":"True ","color":"green","clickEvent":{"action":"run_command"
 
 ## TotemEffect ----------
 #True
-execute if score TotemEffect INH.Settings matches 1 run tellraw @s [{"text":"Totem Effect: ","hoverEvent":{"action":"show_text","contents":["Whether or not you get the totem of undying potion effects on","\nDefault: ",{"text":"FALSE","color": "dark_red"}]}},{"text":"True","color": "dark_green"}]
+execute if score TotemEffect INH.Settings matches 1 run tellraw @s [{"text":"Totem Effect: ","hoverEvent":{"action":"show_text","contents":["Whether or not you get the totem of undying potion effects on revival","\nDefault: ",{"text":"FALSE","color": "dark_red"}]}},{"text":"True","color": "dark_green"}]
 #False
-execute if score TotemEffect INH.Settings matches 0 run tellraw @s [{"text":"Totem Effect: ","hoverEvent":{"action":"show_text","contents":["Whether or not you get the totem of undying potion effects on","\nDefault: ",{"text":"FALSE","color": "dark_red"}]}},{"text":"False","color": "dark_red"}]
+execute if score TotemEffect INH.Settings matches 0 run tellraw @s [{"text":"Totem Effect: ","hoverEvent":{"action":"show_text","contents":["Whether or not you get the totem of undying potion effects on revival","\nDefault: ",{"text":"FALSE","color": "dark_red"}]}},{"text":"False","color": "dark_red"}]
 #Backup in case it is unset, somehow.
-execute unless score TotemEffect INH.Settings matches 0..1 run tellraw @s [{"text":"Totem Effect: ","hoverEvent":{"action":"show_text","contents":["Whether or not you get the totem of undying potion effects on","\nDefault: ",{"text":"FALSE","color": "dark_red"}]}},{"text":"UNSET","color": "dark_gray"}]
+execute unless score TotemEffect INH.Settings matches 0..1 run tellraw @s [{"text":"Totem Effect: ","hoverEvent":{"action":"show_text","contents":["Whether or not you get the totem of undying potion effects on revival","\nDefault: ",{"text":"FALSE","color": "dark_red"}]}},{"text":"UNSET","color": "dark_gray"}]
 
 #Buttons that allow you to toggle it between true and false. Runs a function with the value so it can automatically re-open.
 tellraw @s [{"text":"True ","color":"green","clickEvent":{"action":"run_command","value":"/function incrementalhardcore:settings_menu/set_value {Setting:'TotemEffect',Value:1}"}},{"text":" False","color":"red","clickEvent":{"action":"run_command","value":"/function incrementalhardcore:settings_menu/set_value {Setting:'TotemEffect',Value:0}"}},"\n"]
