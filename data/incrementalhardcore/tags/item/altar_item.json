@@ -1,6 +1,6 @@
 {
     "values":[
-        "minecraft:netherite_ingot",
-        "minecraft:totem_of_undying"
+        "#incrementalhardcore:healing_item",
+        "#incrementalhardcore:revive_item"
     ]
 }
