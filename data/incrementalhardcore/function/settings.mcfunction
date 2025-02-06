@@ -2,7 +2,6 @@
 tellraw @s ["-----Incremental Hardcore Settings-----","\n"]
 
 ## AllowHealing ----------
-#Display for if AllowRevies is true or not, takes 2 checks since I wanted a True/False not a 1/0
 #True
 execute if score AllowHealing INH.Settings matches 1 run tellraw @s [{"text":"Allow Healing: ","hoverEvent":{"action":"show_text","contents":["Whether or not you can regain max health using netherite ingots","\nDefault: ",{"text":"TRUE","color": "dark_green"}]}},{"text":"True","color": "dark_green"}]
 #False
@@ -27,6 +26,16 @@ execute unless score AllowRevives INH.Settings matches 0..1 run tellraw @s [{"te
 tellraw @s [{"text":"True ","color":"green","clickEvent":{"action":"run_command","value":"/function incrementalhardcore:settings_menu/set_value {Setting:'AllowRevives',Value:1}"}},{"text":" False","color":"red","clickEvent":{"action":"run_command","value":"/function incrementalhardcore:settings_menu/set_value {Setting:'AllowRevives',Value:0}"}},"\n"]
 #---------
 
+## ReviveHealth ----------
+#Set
+execute if score ReviveHealth INH.Settings matches 2..10 run tellraw @s [{"text":"Revive Health: ","hoverEvent":{"action":"show_text","contents":["The number of half-hearts a revived player will spawn with","\nDefault: ",{"text":"2","color": "blue"},"\nAccepts Values: ",{"text":"2-20","color":"blue"}]}},{"score":{"name":"ReviveHealth","objective":"INH.Settings"},"color":"#0010e6"}]
+#Backup in case it is unset, somehow.
+execute unless score ReviveHealth INH.Settings matches 2..20 run tellraw @s [{"text":"Revive Health: ","hoverEvent":{"action":"show_text","contents":["The number of half-hearts a revived player will spawn with","\nDefault: ",{"text":"2","color": "blue"},"\nAccepts Values: ",{"text":"2-20","color":"blue"}]}},{"text":"UNSET","color": "dark_gray"}]
+
+#Value toggle buttons
+tellraw @s [{"text":"2 ","color":"blue","clickEvent":{"action":"run_command","value":"/function incrementalhardcore:settings_menu/set_value {Setting:'ReviveHealth',Value:2}"}},{"text":" 4 ","color":"blue","clickEvent":{"action":"run_command","value":"/function incrementalhardcore:settings_menu/set_value {Setting:'ReviveHealth',Value:4}"}},{"text":" 6 ","color":"blue","clickEvent":{"action":"run_command","value":"/function incrementalhardcore:settings_menu/set_value {Setting:'ReviveHealth',Value:6}"}}, {"text":" Custom","color":"blue","clickEvent":{"action":"suggest_command","value":"/function incrementalhardcore:settings_menu/set_value {Setting:'ReviveHealth',Value:?}"}},"\n"]
+#---------
+
 ## TotemEffect ----------
 #True
 execute if score TotemEffect INH.Settings matches 1 run tellraw @s [{"text":"Totem Effect: ","hoverEvent":{"action":"show_text","contents":["Whether or not you get the totem of undying potion effects on revival","\nDefault: ",{"text":"FALSE","color": "dark_red"}]}},{"text":"True","color": "dark_green"}]
@@ -40,7 +49,7 @@ tellraw @s [{"text":"True ","color":"green","clickEvent":{"action":"run_command"
 #---------
 
 #Footer
-tellraw @s ["INTERNAL VERSION NUMBER: ",{"score":{"name":"Version","objective":"INH.Settings"}},"\n","------------------------------------"]
+tellraw @s ["COMPATIBILITY VERSION NUMBER: ",{"score":{"name":"#Version","objective":"INH.Settings"}},"\n","------------------------------------"]
 
 
 
