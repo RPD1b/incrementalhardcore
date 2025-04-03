@@ -1,7 +1,7 @@
 #Simple error check, covers both dead people, and people who have 20 hp, along with fake people, because that would cause it to error.
 $execute unless score $(CustomName) INH.MaxHealth matches 2..18 run return fail
 #If they aren't online then just queue them to get their health updated when they join.
-$execute unless entity $(CustomName)  run scoreboard players set $(CustomName) INH.UpdateHealth 1
+$execute unless entity $(CustomName) run scoreboard players set $(CustomName) INH.UpdateHealth 1
 
 #adds the score if all goes well.
 $scoreboard players add $(CustomName) INH.MaxHealth 2
