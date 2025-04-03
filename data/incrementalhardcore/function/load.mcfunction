@@ -16,7 +16,7 @@ scoreboard players set #Version INH.Settings 3
 #Check for old version marker
 execute if score Version INH.Settings matches 2 run scoreboard players set #VersionOld INH.temp 2
 #Less than check
-execute if score #VersionOld INH.temp < #Version INH.Settings run schedule function incrementalhardcore:old_version/incompatible_version_warning 1s
+execute if score #VersionOld INH.temp matches 0.. if score #VersionOld INH.temp < #Version INH.Settings run schedule function incrementalhardcore:old_version/incompatible_version_warning 1s
 
 #Set default settings
 execute unless score ReviveHealth INH.Settings matches 2..20 run scoreboard players set ReviveHealth INH.Settings 2
