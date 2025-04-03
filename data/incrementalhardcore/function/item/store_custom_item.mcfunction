@@ -1,7 +1,8 @@
 #Clear in case the ingot doesn't have a custom name
 data remove storage incrementalhardcore:temp CustomName
 #store name as a string and remove the 1st and last letter
-data modify storage incrementalhardcore:temp CustomName set string entity @s Item.components.minecraft:custom_name 1 -1
+execute if score is_1.21.5 INH.temp matches 0 run data modify storage incrementalhardcore:temp CustomName set string entity @s Item.components.minecraft:custom_name 1 -1
+execute if score is_1.21.5 INH.temp matches 1 run data modify storage incrementalhardcore:temp CustomName set string entity @s Item.components.minecraft:custom_name
 #store item count, in case the player throws multiple down.
 
 #grabbing the item count and removing by 1, can't do multiplier because it could end up letting you go over limits that certain items might have.

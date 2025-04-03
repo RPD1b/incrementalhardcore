@@ -1,1 +1,1 @@
-function incrementalhardcore:settings
+function incrementalhardcore:admin_functions/settings
