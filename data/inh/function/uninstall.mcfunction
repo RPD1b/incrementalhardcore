@@ -1,0 +1,1 @@
+function incrementalhardcore:admin_functions/uninstall
