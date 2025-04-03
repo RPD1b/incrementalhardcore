@@ -1,6 +1,6 @@
 #Simple error check, covers both dead people, and people who have 20 hp, along with fake people, because that would cause it to error.
 $execute unless score $(CustomName) INH.MaxHealth matches 0 run return fail
-#2nd error check, only applies to this one because the player NEEDS to be online.
+#2nd error check, only applies to this one because the player NEEDS to be online. (For now)
 $execute unless entity $(CustomName) run return fail
 
 #Sets their health, if all goes well.
@@ -10,8 +10,7 @@ $scoreboard players operation $(CustomName) INH.MaxHealth = ReviveHealth INH.Set
 $execute at @s align xyz run tp $(CustomName) ~.5 ~ ~.5
 
 #updates the players hearts so its more than just a score on the tab list.
-$execute store result storage incrementalhardcore:temp MaxHealthValue int 1 run scoreboard players get $(CustomName) INH.MaxHealth
-$execute as $(CustomName) run function incrementalhardcore:hearts/update_health with storage incrementalhardcore:temp
+$execute as $(CustomName) run function incrementalhardcore:hearts/update_health
 
 #Funny totem effect, shouldn't break for any reason. as it happens in 1 tick, if not... God help you.
 $item replace entity $(CustomName) weapon.offhand with totem_of_undying[item_model=air]

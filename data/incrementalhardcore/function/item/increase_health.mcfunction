@@ -7,8 +7,7 @@ $execute unless entity $(CustomName) run scoreboard players set $(CustomName) IN
 $scoreboard players add $(CustomName) INH.MaxHealth 2
 
 #updates the players hearts so its more than just a score on the tab list.
-$execute store result storage incrementalhardcore:temp MaxHealthValue int 1 run scoreboard players get $(CustomName) INH.MaxHealth
-$execute as $(CustomName) run function incrementalhardcore:hearts/update_health with storage incrementalhardcore:temp
+$execute as $(CustomName) run function incrementalhardcore:hearts/update_health
 
 #eye and ear candy
 particle minecraft:ash ~ ~.4 ~ 0.1 0.1 0.1 0.1 50 normal

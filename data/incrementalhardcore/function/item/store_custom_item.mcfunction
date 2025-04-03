@@ -9,7 +9,7 @@ data modify storage incrementalhardcore:temp CustomName set string entity @s Ite
 execute store result score ItemCount INH.temp run data get entity @s Item.count
 #remove the score in itemcount by 1
 scoreboard players operation ItemCount INH.temp -= 1 INH.temp
-#put the score into storage, because you can have only 1 macro source. :sob:
+#put the score into storage
 execute store result storage incrementalhardcore:temp UpdatedItemCount int 1 run scoreboard players get ItemCount INH.temp
 
 #Checks the type of item, because there are different types of items.

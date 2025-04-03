@@ -28,9 +28,9 @@ tellraw @s [{"text":"True ","color":"green","clickEvent":{"action":"run_command"
 
 ## ReviveHealth ----------
 #Set
-execute if score ReviveHealth INH.Settings matches 2..10 run tellraw @s [{"text":"Revive Health: ","hoverEvent":{"action":"show_text","contents":["The number of half-hearts a revived player will spawn with","\nDefault: ",{"text":"2","color": "blue"},"\nAccepts Values: ",{"text":"2-20","color":"blue"}]}},{"score":{"name":"ReviveHealth","objective":"INH.Settings"},"color":"#0010e6"}]
+execute if score ReviveHealth INH.Settings matches 1..20 run tellraw @s [{"text":"Revive Health: ","hoverEvent":{"action":"show_text","contents":["The number of half-hearts a revived player will spawn with","\nDefault: ",{"text":"2","color": "blue"},"\nAccepts Values: ",{"text":"1-20","color":"blue"}]}},{"score":{"name":"ReviveHealth","objective":"INH.Settings"},"color":"#0010e6"}]
 #Backup in case it is unset, somehow.
-execute unless score ReviveHealth INH.Settings matches 2..20 run tellraw @s [{"text":"Revive Health: ","hoverEvent":{"action":"show_text","contents":["The number of half-hearts a revived player will spawn with","\nDefault: ",{"text":"2","color": "blue"},"\nAccepts Values: ",{"text":"2-20","color":"blue"}]}},{"text":"UNSET","color": "dark_gray"}]
+execute unless score ReviveHealth INH.Settings matches 1..20 run tellraw @s [{"text":"Revive Health: ","hoverEvent":{"action":"show_text","contents":["The number of half-hearts a revived player will spawn with","\nDefault: ",{"text":"2","color": "blue"},"\nAccepts Values: ",{"text":"1-20","color":"blue"}]}},{"score":{"name":"ReviveHealth","objective":"INH.Settings"},"color":"#0010e6"},{"text":"\nWARNING, UNSUPPORTED HEALTH VALUE! (IT MAY GET BUGGY)\n","color":"red"}]
 
 #Value toggle buttons
 tellraw @s [{"text":"2 ","color":"blue","clickEvent":{"action":"run_command","value":"/function incrementalhardcore:settings_menu/set_value {Setting:'ReviveHealth',Value:2}"}},{"text":" 4 ","color":"blue","clickEvent":{"action":"run_command","value":"/function incrementalhardcore:settings_menu/set_value {Setting:'ReviveHealth',Value:4}"}},{"text":" 6 ","color":"blue","clickEvent":{"action":"run_command","value":"/function incrementalhardcore:settings_menu/set_value {Setting:'ReviveHealth',Value:6}"}}, {"text":" Custom","color":"blue","clickEvent":{"action":"suggest_command","value":"/function incrementalhardcore:settings_menu/set_value {Setting:'ReviveHealth',Value:?}"}},"\n"]
@@ -50,19 +50,3 @@ tellraw @s [{"text":"True ","color":"green","clickEvent":{"action":"run_command"
 
 #Footer
 tellraw @s ["COMPATIBILITY VERSION NUMBER: ",{"score":{"name":"#Version","objective":"INH.Settings"}},"\n","------------------------------------"]
-
-
-
-
-# ## TEMPLATE ----------
-# #True
-# execute if score TEMPLATE INH.Settings matches 1 run tellraw @s [{"text":"TEMPLATE: ","hoverEvent":{"action":"show_text",contents":["TEXT HERE","\nDefault: ",{"text":"DEFAULT HERE","color": "COLOR HERE"}]}},{"text":"True","color": "dark_green"}]
-# #False
-# execute if score TEMPLATE INH.Settings matches 0 run tellraw @s [{"text":"TEMPLATE: ","hoverEvent":{"action":"show_text",contents":["TEXT HERE","\nDefault: ",{"text":"DEFAULT HERE","color": "COLOR HERE"}]}},{"text":"False","color": "dark_red"}]
-# #Backup in case it is unset, somehow.
-# execute unless score TEMPLATE INH.Settings matches 0..1 run tellraw @s [{"text":"TEMPLATE: ","hoverEvent":{"action":"show_text","contents":["TEXT HERE","\nDefault: ",{"text":"DEFAULT HERE","color": "COLOR HERE"}]}},{"text":"UNSET","color": "dark_gray"}]
-
-# #Buttons that allow you to toggle it between true and false. Runs a function with the value so it can automatically re-open.
-# tellraw @s [{"text":"True ","color":"green","clickEvent":{"action":"run_command","value":"/function incrementalhardcore:settings_menu/set_value {Setting:'TEMPLATE',Value:1}"}},{"text":" False","color":"red","clickEvent":{"action":"run_command","value":"/function incrementalhardcore:settings_menu/set_value {Setting:'TEMPLATE',Value:0}"}},"\n"]
-# #---------
-

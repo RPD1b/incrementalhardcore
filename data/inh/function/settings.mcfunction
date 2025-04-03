@@ -1,0 +1,1 @@
+function incrementalhardcore:settings
