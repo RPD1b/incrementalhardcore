@@ -1,0 +1,15 @@
+{
+  "criteria": {
+    "new_player": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "requirements": [
+    [
+      "new_player"
+    ]
+  ],
+  "rewards": {
+    "function": "incrementalhardcore:hearts/hardcore_init"
+  }
+}

@@ -3,8 +3,6 @@ schedule clear incrementalhardcore:tick
 schedule clear incrementalhardcore:item/item_manager
 schedule clear incrementalhardcore:hearts/offline_health_update_check
 
-# Remove tags
-tag @a remove INH.HardcoreInit
 
 # Remove scoreboards
 scoreboard objectives remove INH.DeathDetect
