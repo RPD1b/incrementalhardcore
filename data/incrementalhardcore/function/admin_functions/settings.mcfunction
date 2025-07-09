@@ -1,2 +1,1 @@
-execute if score is_1.21.5 INH.temp matches 1 run function incrementalhardcore:admin_functions/1.21.5settings
-execute if score is_1.21.5 INH.temp matches 0 run function incrementalhardcore:admin_functions/1.21-1.21.4settings
+tellraw @s ["","The setting menu has moved! Please check your blahbhashajldhas\nDO THIS LATER FFS"]
