@@ -21,4 +21,4 @@ $execute if score TotemEffect INH.Settings matches 0 run effect clear $(CustomNa
 clear @a totem_of_undying[item_model=air]
 
 #kills a lone item, decreases the amount of items if a stack.
-function incrementalhardcore:item/update_item_count with storage incrementalhardcore:temp
+function incrementalhardcore:item/update_item_count with storage incrementalhardcore:temp ItemHandling

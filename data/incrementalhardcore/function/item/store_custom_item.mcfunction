@@ -1,7 +1,7 @@
 #Clear in case the ingot doesn't have a custom name
-data remove storage incrementalhardcore:temp CustomName
+data remove storage incrementalhardcore:temp ItemHandling.CustomName
 #store name as a string
-data modify storage incrementalhardcore:temp CustomName set string entity @s Item.components.minecraft:custom_name
+data modify storage incrementalhardcore:temp ItemHandling.CustomName set string entity @s Item.components.minecraft:custom_name
 
 #store item count, in case the player throws multiple down.
 
@@ -11,9 +11,9 @@ execute store result score ItemCount INH.temp run data get entity @s Item.count
 #remove the score in itemcount by 1
 scoreboard players operation ItemCount INH.temp -= 1 INH.temp
 #put the score into storage
-execute store result storage incrementalhardcore:temp UpdatedItemCount int 1 run scoreboard players get ItemCount INH.temp
+execute store result storage incrementalhardcore:temp ItemHandling.UpdatedItemCount int 1 run scoreboard players get ItemCount INH.temp
 
 #Checks the type of item, because there are different types of items.
-execute if score AllowHealing INH.Settings matches 1 if items entity @s hotbar.0 #incrementalhardcore:healing_item run return run function incrementalhardcore:item/increase_health with storage incrementalhardcore:temp
-execute if score AllowRevives INH.Settings matches 1 if items entity @s hotbar.0 #incrementalhardcore:revive_item run return run function incrementalhardcore:item/revive with storage incrementalhardcore:temp
+execute if score AllowHealing INH.Settings matches 1 if items entity @s hotbar.0 #incrementalhardcore:healing_item run return run function incrementalhardcore:item/increase_health with storage incrementalhardcore:temp ItemHandling
+execute if score AllowRevives INH.Settings matches 1 if items entity @s hotbar.0 #incrementalhardcore:revive_item run function incrementalhardcore:item/revive with storage incrementalhardcore:temp ItemHandling
 

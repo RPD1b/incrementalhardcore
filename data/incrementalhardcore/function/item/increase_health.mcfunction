@@ -15,4 +15,4 @@ playsound minecraft:entity.firework_rocket.twinkle_far neutral @a ~ ~ ~ 1 1.5
 
 
 #kills a lone item, decreases the amount of items if a stack.
-function incrementalhardcore:item/update_item_count with storage incrementalhardcore:temp
+function incrementalhardcore:item/update_item_count with storage incrementalhardcore:temp ItemHandling
