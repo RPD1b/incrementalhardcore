@@ -52,7 +52,7 @@ $dialog show @s {\
             "label": "Cancel",\
             "action":{\
                 "type":"minecraft:run_command",\
-                "command": "trigger INH.SettingsMenu"\
+                "command": "trigger INH.SettingsMenu set 0"\
             }\
         }\
     ]\

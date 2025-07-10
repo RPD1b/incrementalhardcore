@@ -20,7 +20,7 @@
 
 
 # Fails if the code is outside of possible VALID values
-execute unless score @s INH.SettingsMenu matches 722000..7220111 run return fail
+execute unless score @s INH.SettingsMenu matches 722000..7220111 run return run scoreboard players set @s INH.SettingsMenu 0
 
 # Store the code
 execute store result storage incrementalhardcore:temp SettingsDecode.OriginalValue int 1 run scoreboard players get @s INH.SettingsMenu
